@@ -1,0 +1,1 @@
+/Users/fni_nishiyama/dotfiles/.vim

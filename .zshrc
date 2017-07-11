@@ -175,4 +175,5 @@ PERL_MM_OPT="INSTALL_BASE=/Users/fni_nishiyama/perl5"; export PERL_MM_OPT;
   #$(boot2docker shellinit)
 #fi
 
-
+### ctags alias
+alias ctags="`brew --prefix`/bin/ctags"

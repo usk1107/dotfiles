@@ -100,6 +100,7 @@ NeoBundle 'hail2u/vim-css3-syntax'
 "NeoBundle 'taichouchou2/html5.vim'
 "NeoBundle 'taichouchou2/vim-javascript'
 "NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'typescript-vim'
 NeoBundle 'jlebensold/reilly_restaurants'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'SirVer/ultisnips'
@@ -129,6 +130,8 @@ NeoBundle 'mtscout6/vim-cjsx'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'szw/vim-tags'
+NeoBundle 'othree/javascript-libraries-syntax.vim'
+NeoBundle 'gavocanov/vim-js-indent'
 
 call neobundle#end()
 filetype plugin indent on     " required!
@@ -295,3 +298,14 @@ nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 " 水平
 nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
+" Typescript用の設定
+autocmd BufRead,BufNewFile *.ts set filetype=typescript
+let g:js_indent_typescript = 1
+
+" Syntax
+autocmd BufReadPre *.js let b:javascript_lib_use_underscore = 0
+autocmd BufReadPre *.js let b:javascript_lib_use_backbone = 0
+autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_react = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_flux = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_flux = 1

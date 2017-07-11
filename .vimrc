@@ -287,6 +287,11 @@ let g:quickrun_config['vim'] = {
 
 
 " ctags用のvim-tags設定
-au BufNewFile,BufRead *.php let g:vim_tags_project_tags_command = "ctags --languages=php -f ~/php.tags `pwd` 2>/dev/null &"
+au BufNewFile,BufRead *.rb let g:vim_tags_project_tags_command = "ctags --languages=ruby -f ~/ruby.tags `pwd` 2>/dev/null &"
 
+" ctags用のキーバインディング
+" 垂直
+nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
+" 水平
+nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 

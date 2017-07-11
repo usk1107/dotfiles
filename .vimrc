@@ -76,14 +76,13 @@ set backup
 set backupdir=~/.vimbackup
 
 
-filetype off
+set nocompatible
+filetype plugin indent off
 
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim
-endif
-call neobundle#begin(expand('~/.vim/bundle/'))
+set runtimepath+=~/dotfiles/.vim/bundle/neobundle.vim/
+call neobundle#begin(expand('~/dotfiles/.vim/bundle/'))
+
 NeoBundleFetch 'Shougo/neobundle.vim'
-
 " originalrepos on github
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc'
@@ -97,11 +96,7 @@ NeoBundle 'matchit.zip'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'tell-k/vim-browsereload-mac'
 NeoBundle 'hail2u/vim-css3-syntax'
-"NeoBundle 'taichouchou2/html5.vim'
-"NeoBundle 'taichouchou2/vim-javascript'
-"NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'typescript-vim'
-NeoBundle 'jlebensold/reilly_restaurants'
+NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'isRuslan/vim-es6'
@@ -126,16 +121,14 @@ NeoBundle 'tyru/open-browser.vim'
 "NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'editorconfig/editorconfig-vim'
-NeoBundle 'mtscout6/vim-cjsx'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'szw/vim-tags'
 NeoBundle 'othree/javascript-libraries-syntax.vim'
-NeoBundle 'gavocanov/vim-js-indent'
+NeoBundle 'pangloss/vim-javascript'
 
 call neobundle#end()
 filetype plugin indent on     " required!
-filetype indent on
 syntax on
 
 " colorscheme設定
@@ -288,9 +281,9 @@ let g:quickrun_config['vim'] = {
 \   "hook/output_encode/encoding" : "utf-8",
 \}
 
-
 " ctags用のvim-tags設定
 au BufNewFile,BufRead *.rb let g:vim_tags_project_tags_command = "ctags --languages=ruby -f ~/ruby.tags `pwd` 2>/dev/null &"
+au BufNewFile,BufRead *.js let g:vim_tags_project_tags_command = "ctags --languages=javascript -f ~/javascript.tags `pwd` 2>/dev/null &"
 
 " ctags用のキーバインディング
 " 垂直
@@ -300,7 +293,7 @@ nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
 " Typescript用の設定
 autocmd BufRead,BufNewFile *.ts set filetype=typescript
-let g:js_indent_typescript = 1
+let g:typescript_indent_disable = 1
 
 " Syntax
 autocmd BufReadPre *.js let b:javascript_lib_use_underscore = 0

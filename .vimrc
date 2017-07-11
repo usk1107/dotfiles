@@ -128,6 +128,7 @@ NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'mtscout6/vim-cjsx'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'slim-template/vim-slim'
+NeoBundle 'szw/vim-tags'
 
 call neobundle#end()
 filetype plugin indent on     " required!
